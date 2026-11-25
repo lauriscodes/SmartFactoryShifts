@@ -1,0 +1,39 @@
+﻿<section class="employee-page" aria-labelledby="employee-heading">
+  <header class="page-heading">
+    <h2 id="employee-heading">Employees</h2>
+    <p>Add an employee to make them available when scheduling shifts.</p>
+  </header>
+
+  <form class="employee-form" (ngSubmit)="save()" aria-labelledby="form-heading">
+    <div class="form-body">
+      <h3 id="form-heading">New employee</h3>
+      <div class="fields">
+        <kendo-label text="Full name">
+          <kendo-textbox name="employeeName" [(ngModel)]="name"/>
+        </kendo-label>
+        <kendo-label text="Job">
+          <kendo-combobox
+            name="job"
+            [(ngModel)]="job"
+            [data]="['Electrician', 'Technician', 'Plumber']"/>
+        </kendo-label>
+        <kendo-label text="Age (18–65)">
+          <kendo-numerictextbox
+            name="age"
+            [(ngModel)]="age"
+            [autoCorrect]="true"
+            [max]="65"
+            [min]="18"
+            format="n0"/>
+        </kendo-label>
+        <kendo-label text="Shift color">
+          <kendo-colorpicker name="color" [(ngModel)]="color" activeView="palette"/>
+        </kendo-label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button kendoButton type="submit" themeColor="primary">Save employee</button>
+    </div>
+  </form>
+</section>

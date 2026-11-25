@@ -1,0 +1,104 @@
+﻿.planner {
+  display: grid;
+  grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.roster,
+.calendar {
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: var(--panel);
+  box-shadow: 0 8px 24px rgb(22 41 39 / 5%);
+}
+
+.roster {
+  padding: 1.125rem;
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.0625rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  a {
+    color: var(--accent);
+    font-weight: 650;
+    text-underline-offset: 0.15em;
+  }
+}
+
+kendo-listview {
+  margin-top: 1rem;
+  border: 0;
+}
+
+.employee {
+  position: relative;
+  display: grid;
+  gap: 0.15rem;
+  margin-bottom: 0.5rem;
+  padding: 0.65rem 0.65rem 0.65rem 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: #f8fbfa;
+  cursor: grab;
+  overflow-wrap: anywhere;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.9rem;
+    left: 0.65rem;
+    width: 0.6rem;
+    aspect-ratio: 1;
+    border: 1px solid rgb(22 41 39 / 20%);
+    border-radius: 50%;
+    background: var(--employee-color, var(--accent));
+  }
+
+  strong {
+    font-size: 0.875rem;
+  }
+
+  span {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+}
+
+.calendar {
+  overflow: auto;
+}
+
+kendo-scheduler {
+  min-width: 32rem;
+  border: 0;
+}
+
+.info {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.45rem;
+  background: var(--header);
+  color: white;
+  font-weight: 600;
+}
+
+.drop-zone {
+  height: 100%;
+}
+
+@media (max-width: 53rem) {
+  .planner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

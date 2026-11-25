@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@progress/kendo-theme-default/scss/index.scss" as kendo;
+
+@include kendo.kendo-form--styles();
+@include kendo.kendo-textbox--styles();
+@include kendo.kendo-numeric-textbox--styles();
+@include kendo.kendo-combobox--styles();
+@include kendo.kendo-color-picker--styles();
+@include kendo.kendo-listview--styles();
+@include kendo.kendo-draggable--styles();
+@include kendo.kendo-scheduler--styles();
+
+:root {
+	color-scheme: light;
+	--canvas: #f2f6f5;
+	--panel: #fff;
+	--ink: #162927;
+	--muted: #526661;
+	--line: #dbe6e2;
+	--accent: #08766b;
+	--header: #142c2a;
+	--workspace: 78rem;
+	--gutter: clamp(1rem, 4vw, 3rem);
+	--panel-radius: 1rem;
+	--kendo-color-primary: var(--accent);
+	--kendo-color-primary-hover: #066359;
+	--kendo-color-primary-active: #05534b;
+	--kendo-color-primary-subtle: #e6f4ef;
+	--kendo-color-primary-on-surface: var(--accent);
+	font-family: "Instrument Sans", system-ui, sans-serif;
+	color: var(--ink);
+	background: var(--canvas);
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+:is(.k-input, .k-button, .k-popup, .k-scheduler, .k-dialog) {
+	font-family: inherit;
+}
+
+.page-heading {
+	margin-bottom: 1.75rem;
+
+	h2 {
+		margin: 0;
+		font-size: clamp(2rem, 5vw, 3.25rem);
+		font-weight: 680;
+		letter-spacing: -0.045em;
+		line-height: 1.08;
+	}
+
+	p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+		line-height: 1.55;
+	}
+}

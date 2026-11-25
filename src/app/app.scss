@@ -1,0 +1,6 @@
+.workspace {
+  width: min(100%, var(--workspace));
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 4rem) var(--gutter);
+}
+

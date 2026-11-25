@@ -1,0 +1,79 @@
+﻿.employee-page {
+  max-width: 49rem;
+  margin-inline: auto;
+}
+ 
+.employee-form {
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+  background: var(--panel);
+  box-shadow: 0 8px 24px rgb(22 41 39 / 5%);
+}
+
+.form-body {
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+h3 {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 680;
+  letter-spacing: -0.02em;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+}
+
+kendo-label {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+kendo-textbox,
+kendo-combobox,
+kendo-numerictextbox {
+  width: 100%;
+}
+
+kendo-colorpicker {
+  justify-self: start;
+}
+
+kendo-textbox,
+kendo-combobox,
+kendo-numerictextbox,
+kendo-colorpicker,
+button {
+  min-height: 2.625rem;
+  font-size: 0.9375rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem clamp(1.25rem, 4vw, 2rem);
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 var(--panel-radius) var(--panel-radius);
+  background: #f8fbfa;
+}
+
+button {
+  padding-inline: 1.125rem;
+  font-weight: 650;
+}
+
+@media (max-width: 36rem) {
+  .fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  button {
+    width: 100%;
+  }
+}

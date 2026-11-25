@@ -1,0 +1,58 @@
+﻿<section aria-labelledby="shifts-heading">
+  <header class="page-heading">
+    <h2 id="shifts-heading">Shifts</h2>
+    <p>Plan coverage in the day or week view.</p>
+  </header>
+
+  <div class="planner">
+    <aside class="roster" aria-labelledby="roster-heading">
+      <h3 id="roster-heading">Employees</h3>
+      @if (employees().length) {
+        <p>Drag an employee onto the schedule to assign a shift.</p>
+        <kendo-listview
+          (onDragStart)="selected.set($event.dragTarget.outerText.split('\n')[0])"
+          [data]="employees()"
+          [hint]="{ hintTemplate: info }"
+          dragTargetFilter=".k-listview-item"
+          kendoDragTargetContainer>
+          <ng-template kendoListViewItemTemplate let-employee="dataItem">
+            <div class="employee" [style.--employee-color]="employee.color">
+              <strong>{{ employee.name }}</strong>
+              <span>{{ employee.job }}</span>
+            </div>
+          </ng-template>
+        </kendo-listview>
+      } @else {
+        <p>No employees yet. <a routerLink="/employees">Add an employee</a> to assign shifts.</p>
+      }
+    </aside>
+
+    <div class="calendar" role="region" aria-label="Shift schedule" tabindex="0">
+      <kendo-scheduler
+        #scheduler
+        (onDrop)="addShift($event)"
+        [allDaySlot]="false"
+        [eventStyles]="getEventStyles"
+        [hiddenDays]="hiddenDays"
+        [kendoSchedulerBinding]="shifts"
+        [kendoSchedulerReactiveEditing]="createShift"
+        [resources]="resources"
+        [showWorkHours]="true"
+        [weekStart]="1"
+        dropTargetFilter=".drop-zone"
+        kendoDropTargetContainer
+        workDayEnd="16:00"
+        workDayStart="08:00">
+        <ng-template kendoSchedulerTimeSlotTemplate let-date="date">
+          <div [attr.date]="date" class="drop-zone"></div>
+        </ng-template>
+        <kendo-scheduler-day-view/>
+        <kendo-scheduler-week-view/>
+      </kendo-scheduler>
+    </div>
+
+    <ng-template #info>
+      <p class="info">{{ selected() }}</p>
+    </ng-template>
+  </div>
+</section>
